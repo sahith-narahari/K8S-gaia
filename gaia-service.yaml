@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: gaiad-service
+spec:
+  ports:
+    - name: lcd
+      port: 1317
+    - name: rpc
+      port: 26657
+  selector:
+role: gaiad
