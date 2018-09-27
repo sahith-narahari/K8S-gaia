@@ -12,15 +12,7 @@ spec:
         name: gaiad
     spec:
       containers:
-      - image: golang:latest
-        command:
-          - go get -u -v github.com/fatih/color 
-          - cd /go/src/github.com 
-          - mkdir cosmos 
-          - cd cosmos 
-          - git clone https://github.com/cosmos/cosmos-sdk.git 
-          - cd cosmos-sdk 
-          - make get_tools && make get_vendor_deps && make install 
+      - image: "dockerhubimageName"
         imagePullPolicy: IfNotPresent
         name: gaiad
         volumeMounts:
@@ -29,5 +21,9 @@ spec:
             mountPath: "/opt/share/"
       volumes:
       - name: nfs
-        persistentVolumeClaim:
-          claimName: nfs
+        hostPath:
+          path: /opt/share/
+      # - name: nfs
+        # persistentVolumeClaim:
+        #   claimName: nfs
+          
