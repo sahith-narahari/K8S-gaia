@@ -14,15 +14,13 @@ spec:
       containers:
       - image: golang:latest
         command:
-          - sh
-          - go get -u -v github.com/fatih/color \
-        && cd /go/src/github.com \
-        && mkdir cosmos \
-        && cd cosmos \
-        && git clone https://github.com/cosmos/cosmos-sdk.git \
-        && cd cosmos-sdk \
-        && make get_tools && make get_vendor_deps && make instal \
-        && gaiad init --name eon
+          - go get -u -v github.com/fatih/color 
+          - cd /go/src/github.com 
+          - mkdir cosmos 
+          - cd cosmos 
+          - git clone https://github.com/cosmos/cosmos-sdk.git 
+          - cd cosmos-sdk 
+          - make get_tools && make get_vendor_deps && make install 
         imagePullPolicy: IfNotPresent
         name: gaiad
         volumeMounts:
