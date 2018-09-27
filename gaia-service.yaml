@@ -9,4 +9,4 @@ spec:
     - name: rpc
       port: 26657
   selector:
-role: gaiad
+    role: gaiad
